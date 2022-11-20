@@ -1,16 +1,27 @@
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+const mongoose = require("mongoose");
+const Users = require("./Users");
 
-MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("mydb");
-    var myobj = {
-        name: "Abhishek Singh",
-        address: "142 Lakhi bagh"
-    };
-    dbo.collection("customers").insertOne(myobj, function(err, res) {
-        if (err) throw err;
-        console.log("1 document inserted");
-        db.close();
-    });
+var url = "mongodb://localhost:27017/stressibye";
+
+
+// connection creation and creating new database
+mongoose.connect(url).then(()=>{
+        console.log("Connection stablished between app and database");
+}).catch((err)=>{
+    console.log("there is some issue in connection",err);
 });
+
+const tempData = new Users({
+  firstName: "abhishek",
+  lastName: "singh",
+  emailId: "abhi2907singh@gmail.com",
+  age: 20,
+  phoneNumber: "9897144223",
+  stressLevel: 33
+})
+
+tempData.save().then(()=>{
+    console.log("data stored successfully...");
+}).catch((err)=>{
+    console.log("There is some issue ",err);
+})
