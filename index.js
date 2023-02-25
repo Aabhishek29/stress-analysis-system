@@ -1,9 +1,11 @@
-const rest = require('./src/rest/users.js');
-
+const rest = require('./src/controllers/rest/usersRestController.js');
+const connectDB = require('./src/model/connect');
 const bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 var fs = require("fs");
+
+connectDB()
 
 app.use(bodyParser.json())
 
