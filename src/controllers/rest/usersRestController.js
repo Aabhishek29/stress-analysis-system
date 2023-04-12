@@ -8,6 +8,10 @@ rest.get('/users',async (req, res) => {
     res.status(200).json(data);
 })
 
+
+rest.get('/users/{name}')
+
+
 rest.post('/addUsers', async (req, res) => {
     console.log("Value of req is ", req.body)
     if(!req.body.firstName) {

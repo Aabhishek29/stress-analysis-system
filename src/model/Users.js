@@ -14,7 +14,8 @@ var UserSchema =mongoose.Schema({
         type: Number,
         require: [true, "Please enter your age"]
     },
-    phoneNumber: String,    stressLevel: {
+    phoneNumber: String,    
+    stressLevel: {
         type : Number,
         default : 0
     },
