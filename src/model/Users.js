@@ -1,24 +1,19 @@
-var mongoose = require("mongoose");
+let mongoose = require("mongoose");
 
-var UserSchema =mongoose.Schema({
-    firstName:{
+let UserSchema =mongoose.Schema({
+    name :{
         type: String,
-        require: [true, "Please enter first name"]
+        require: [true, "Please enter name"]
     },
-    lastName:String,
     emailId: {
         type: String,
         require: [true, "Please enter your email"]
     },
-    age: {
-        type: Number,
-        require: [true, "Please enter your age"]
+    password: {
+        type: String,
+        require: [true, "Please enter your password"]
     },
-    phoneNumber: String,    
-    stressLevel: {
-        type : Number,
-        default : 0
-    },
+    phoneNumber: String,
     createdAt: {
         type: Date,
         default: Date.now
